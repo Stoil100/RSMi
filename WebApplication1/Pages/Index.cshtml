@@ -1,0 +1,70 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="container-fluid p-0">
+    <!-- Section 1: Introduction to Authentication (Full width and height, text inside image) -->
+    <div class="position-relative text-white" style="background-image: url('/images/home.jpg'); background-size: cover; background-position: center; height: 100vh;">
+        <div class="position-absolute top-50 start-50 translate-middle text-center" style="background: rgba(0, 0, 0, 0.5); padding: 20px;">
+            <h3 class="display-4">1. Introduction to Authentication</h3>
+            <p class="lead">
+                Authentication is the process of verifying the identity of a user or system. In web applications, 
+                this typically involves checking credentials like usernames and passwords. Authentication ensures 
+                that users are who they claim to be, which is crucial for maintaining the security of an application.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <!-- Section 2: User Registration (Image and text side by side) -->
+    <div class="row mb-4 align-items-center">
+        <div class="col-md-6">
+            <h3>2. User Registration</h3>
+            <p>
+                User registration is the process of creating a new account in the system. It typically involves 
+                collecting user information, such as username, email, and password. The system stores this information 
+                securely, often hashing the password before saving it to the database, to protect against unauthorized 
+                access.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <img src="/images/example2.jpg" class="img-fluid" alt="User Registration">
+        </div>
+    </div>
+     <!-- Section 3: User Login (No image) -->
+    <div class="row mb-4 align-items-center">
+        <div class="col-md-6">
+            <img src="/images/example1.jpg" class="img-fluid" alt="User Registration">
+        </div>
+         <div class="col-md-6">
+            <h3>3. User Login</h3>
+            <p>
+                User login is the process where a registered user provides their credentials to access the system.
+                The system verifies the credentials by comparing them with stored data. Upon successful authentication,
+                the system may create a session or issue a token to keep the user logged in during their interaction
+                with the application.
+            </p>
+        </div>
+    </div
+    <!-- Section 4: OAuth and External Providers (Text above centered image) -->
+    <div class="row mb-4 text-center">
+        <div class="col-md-12">
+            <h3>4. OAuth and External Providers</h3>
+            <p>
+                OAuth is a protocol that allows secure authorization from third-party services like Google, Facebook, 
+                and others. Instead of handling user credentials directly, applications redirect users to the external 
+                provider for authentication. This improves security and user convenience as they can use existing accounts 
+                to log in to your application.
+            </p>
+            <img src="/images/tech.jpg" class="img-fluid mx-auto" alt="OAuth and External Providers">
+        </div>
+    </div>
+</div>

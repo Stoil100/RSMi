@@ -1,0 +1,45 @@
+﻿@page
+@model AdminModel
+@{
+    ViewData["Title"] = "Admin";
+    Layout = "_Layout";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header text-center bg-primary text-white">
+                    <h2>Apply to Become an Admin</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phoneNumber" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="reason" class="form-label">Why do you want to become an admin?</label>
+                            <textarea class="form-control" id="reason" name="reason" rows="4" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg w-100">Submit</button>
+                        </div>
+                    </form>
+                    @if (!string.IsNullOrEmpty(Model.Message))
+                    {
+                        <div class="alert alert-info mt-3">@Model.Message</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

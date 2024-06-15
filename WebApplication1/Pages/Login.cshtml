@@ -1,0 +1,85 @@
+﻿@page
+@model LoginModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+	ViewData["Title"] = "Login";
+}
+
+<div class="full-screen-container d-flex align-items-center justify-content-center">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="card shadow-sm">
+					<div class="card-header text-center">
+						<h1>Login to your account</h1>
+					</div>
+					<div class="card-body">
+						<form method="post">
+							<div class="form-group">
+								<label asp-for="LoginUser.Username"></label>
+								<input asp-for="LoginUser.Username" class="form-control" />
+								<span asp-validation-for="LoginUser.Username" class="text-danger"></span>
+							</div>
+							<div class="form-group">
+								<label asp-for="LoginUser.Password"></label>
+								<div class="input-group">
+									<input asp-for="LoginUser.Password" type="password" class="form-control" id="password" />
+									<div class="input-group-append">
+										<button type="button" class="btn btn-secondary" onclick="togglePasswordVisibility()">Show</button>
+									</div>
+								</div>
+								<span asp-validation-for="LoginUser.Password" class="text-danger"></span>
+							</div>
+							<button type="submit" class="btn btn-primary btn-block">Login</button>
+						</form>
+
+						<div class="text-center d-flex flex-row gap-4 px-3 pt-2">
+							<hr class="flex-grow-1 border border-secondary" />
+							<h5>Or using</h5>
+							<hr class="flex-grow-1 border border-secondary" />
+						</div>
+
+						<div class="text-center row align-items-center justify-content-center mb-3">
+							<div class="col-6">
+								<form method="post" asp-page-handler="GoogleLogin">
+									<button type="submit" class="btn btn-danger btn-block">
+										<i class="fab fa-google"></i> Google
+									</button>
+								</form>
+							</div>
+							<div class="col-6">
+								<form method="post" asp-page-handler="GitHubLogin">
+									<button type="submit" class="btn btn-dark btn-block">
+										<i class="fab fa-github"></i> GitHub
+									</button>
+								</form>
+							</div>
+						</div>
+
+						@if (ModelState.ErrorCount > 0)
+						{
+							<div class="alert alert-danger mt-3">
+								@foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+								{
+									<p>@error.ErrorMessage</p>
+								}
+							</div>
+						}
+						<div class="text-center mt-3">
+							<p>Don't have an account? <a href="/Register">Register here</a>.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	function togglePasswordVisibility() {
+		var passwordField = document.getElementById("password");
+		var type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+		passwordField.setAttribute('type', type);
+	}
+</script>
